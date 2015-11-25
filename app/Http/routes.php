@@ -12,9 +12,19 @@
 */
 
 // ============ API Routes ============
-    Route::group(array('prefix' => 'api/v1'), function () {
-        # TimeEntry #
-        Route::resource('track', 'TracksController', ['only' => ['index', 'store', 'update', 'destroy']]);
-		# Type #
-        /*Route::resource('type', '', ['only' => ['index']]);*/
-    });
+Route::group(array('prefix' => 'api/v1'), function () {
+	# TimeEntry #
+    Route::resource('track', 'TracksController', ['only' => ['index', 'store', 'update', 'destroy']]);
+	# Type #
+    Route::get('type', 'TypesController@index');
+});
+
+// ============ Angular Routing ============
+Route::get('/', function () {
+    return File::get(public_path() . '/app/index.html');
+});
+
+//Missing Route
+Route::any('{path?}', function () {
+    return File::get(public_path() . '/app/index.html');
+})->where("path", ".+");

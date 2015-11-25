@@ -1,0 +1,17 @@
+{
+  "name": "sport-track-app",
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "homepage": "https://github.com/juampick/spa-sport-track-app",
+  "moduleType": [
+    "globals"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
