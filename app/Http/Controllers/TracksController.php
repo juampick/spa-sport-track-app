@@ -20,7 +20,12 @@ class TracksController extends Controller
     public function index()
     {
         $user = User::find(1); //Harcoded for now -> after implemented Authentication this line could be replaced with: Auth::user();
-        $tracks = $user->tracks;        
+        $tracks = $user->tracks;
+
+        foreach ($tracks as &$track){
+            $track->type->description;
+            unset($track->type_id);
+        }        
 
         return $tracks;
     }

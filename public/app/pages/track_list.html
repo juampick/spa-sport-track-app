@@ -1,0 +1,70 @@
+<div class="page-header">
+    <h3>Track <small>your activities</small></h3>
+</div>
+<div class="row">
+    <div class="col-sm-8 col-sm-offset-2">
+        <div class="panel panel-default">
+            <!-- Default panel contents -->
+            <div class="panel-heading">
+                <div class="row">
+                    <div class="col-sm-9">
+                        <button class="btn btn-primary" ui-sref="track_create"><i class="fa fa-plus"></i> New</button>
+                        <button class="btn btn-default" ng-click="trackList.refresh()"><i class="fa fa-refresh"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row" ng-show="trackList.tracks.length > 0">
+            <div class="col-sm-12">
+                <p class="text-muted pull-right"><span>{{ trackList.totalItems }}</span> records</p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-6" ng-repeat="track in trackList.tracks">
+                <div class="panel panel-default track">
+                    <div class="panel-heading clearfix">
+                        <h3 class="panel-title pull-left">
+                            <i class="fa fa-calendar"></i>
+                            {{ track.date | date: medium }}
+                        </h3>
+                        <div class="time-actions pull-right">
+                            <ul class="list-inline">
+                                <li>
+                                    <a href="#" uib-tooltip="Delete" class="actions-delete-time-entry"
+                                       ng-really-message="Are you sure you want to delete this log?" ng-really-click="trackList.deleteTrack(track)">
+                                        <i class="fa fa-trash"></i>
+                                    </a>
+                                </li>
+                                <!-- <li>
+                                    <a href="#" uib-tooltip="Edit" class="actions-edit-time-entry"
+                                       ng-click="trackList.editTimeEntry(timeEntry)">
+                                        <i class="fa fa-pencil"></i>
+                                    </a>
+                                </li> -->
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="panel-body text-center">
+                    	<p>
+                            <span class="activity"><i uib-tooltip="Activity" class="fa fa-tag text-muted"></i> {{ track.type.description }}</span>
+                        </p>
+                        <p>
+                            <span class="distance"><i uib-tooltip="Distance" class="fa fa-road text-muted"></i> {{ track.distance | number }} km</span>
+                            <span class="time"><i uib-tooltip="Time" class="fa fa-clock-o text-muted"></i> {{ track.time }}</span>
+                        </p>
+                        <p class="average-speed-container text-danger">
+                            <i uib-tooltip="Avg. Speed" class="fa fa-tachometer fa-2x"></i>
+                            <span class="average-speed">{{ track.averageSpeed | number: 2 }}</span>
+                            <span class="">Km/h.</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <uib-alert class="no-records-alert" type="info" ng-show="trackList.tracks.length === 0">No records to display</uib-alert>
+        <br>
+
+    </div>
+</div>

@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en" ng-app="sportTrackApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SportApp</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../assets/bower/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../assets/bower/font-awesome/css/font-awesome.min.css" />
+    <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:300,700,400' rel='stylesheet' type='text/css'>
+
+    <!-- JS --> 
+    <script src="../assets/bower/angular/angular.min.js"></script>
+    <script src="../assets/bower/angular-ui-router/release/angular-ui-router.min.js"></script>
+    <script src="../assets/bower/angular-resource/angular-resource.min.js"></script>
+    <script src="../assets/bower/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+    <script src="../assets/bower/moment/min/moment.min.js"></script>
+    <script src="../assets/bower/angular-moment/angular-moment.min.js"></script>
+
+    <!-- Angular App -->
+    <script src="../app/js/app.js"></script>    
+    <!-- Services -->
+    <script src="../app/js/services/track.js"></script>    
+    <!-- Controllers -->
+    <script src="../app/js/controllers/homeController.js"></script>    
+    <script src="../app/js/controllers/trackListController.js"></script>    
+    <script src="../app/js/controllers/trackCreateController.js"></script>    
+
+    <base href="/">
+</head>
+<body>
+<nav class="navbar navbar-default">
+    <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-brand" ui-sref="/">sportTrackApp</a>
+        </div>
+
+        <ul class="nav navbar-nav">
+            <li><a ui-sref="/"><i class="fa fa-home"></i> Home</a></li>
+            <li><a ui-sref="track_list"><i class="fa fa-list-ol"></i> Track</a></li>
+        </ul>
+    </div>
+</nav>
+<div id="main">
+    <div class="container" ui-view></div>
+</div>
+</body>
+</html>

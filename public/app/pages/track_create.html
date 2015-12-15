@@ -1,0 +1,45 @@
+<div class="col-sm-6 col-sm-offset-3">
+    <div class="well">
+        <h3>Create New Track</h3>
+        <form name="formTrack" novalidate>
+            <div class="form-group has-feedback" ng-class="{ 'has-error': formTrack.date.$touched && formTrack.date.$invalid }">
+                <div class="input-group date">
+                    <input disabled type="text" class="form-control" uib-datepicker-popup="{{ trackCreate.dateFormat }}" is-open="trackCreate.datePickerStatus.opened" ng-model="trackCreate.timeEntry.date" placeholder="Date">
+                    <i class="glyphicon glyphicon-calendar form-control-feedback"></i>
+                        <span class="input-group-btn">
+                            <button type="button" class="btn btn-default" ng-click="trackCreate.openDatePicker($event)">
+                                <i class="fa fa-calendar"></i>
+                            </button>
+                        </span>
+                </div>
+                <div class="help-block" ng-messages="newLog.date.$error" ng-if="newLog.date.$touched">
+                    <div ng-messages-include=" app/pages/messages.html"></div>
+                </div>
+            </div>
+            <div class="form-group has-feedback" ng-class="{ 'has-error': newLog.distance.$touched && newLog.distance.$invalid }">
+                <input type="number" string-to-number name="distance" class="form-control" placeholder="Distance (km)" ng-model="trackCreate.timeEntry.distance" required>
+                <i class="glyphicon glyphicon-road form-control-feedback"></i>
+                <div class="help-block" ng-messages="newLog.distance.$error" ng-if="newLog.distance.$touched">
+                    <div ng-messages-include="app/pages/messages.html"></div>
+                </div>
+            </div>
+            <div class="form-group has-feedback" ng-class="{ 'has-error': newLog.time.$touched && newLog.time.$invalid }">
+                <input type="text" name="time" class="form-control" placeholder="Time (HH:mm:ss)" ng-model="trackCreate.timeEntry.time" ui-mask="99:99:99" ui-mask-placeholder ui-mask-placeholder-char="_" model-view-value="true" required>
+                <i class="glyphicon glyphicon-time form-control-feedback"></i>
+
+                <div class="help-block" ng-messages="newLog.time.$error" ng-if="newLog.time.$touched">
+                    <div ng-messages-include="app/pages/messages.html"></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-8">
+                    <button class="btn btn-primary btn-block" ng-click="trackCreate.create(newLog.$valid)" ng-disabled="newLog.$invalid"><i class="fa fa-plus"></i> Create</button>
+                </div>
+                <div class="col-sm-4">
+                    <button class="btn btn-secondary btn-block" ui-sref="track_list"><i class="fa fa-backward"></i> Back</button>
+                </div>
+            </div>
+            <br>
+        </form>
+    </div>
+</div>
