@@ -3,18 +3,10 @@
         <h3>Create New Track</h3>
         <form name="formTrack" novalidate>
             <div class="form-group has-feedback" ng-class="{ 'has-error': formTrack.date.$touched && formTrack.date.$invalid }">
-                <div class="input-group date">
-                    <input disabled type="text" class="form-control" uib-datepicker-popup="{{ trackCreate.dateFormat }}" is-open="trackCreate.datePickerStatus.opened" ng-model="trackCreate.timeEntry.date" placeholder="Date">
-                    <i class="glyphicon glyphicon-calendar form-control-feedback"></i>
-                        <span class="input-group-btn">
-                            <button type="button" class="btn btn-default" ng-click="trackCreate.openDatePicker($event)">
-                                <i class="fa fa-calendar"></i>
-                            </button>
-                        </span>
-                </div>
-                <div class="help-block" ng-messages="newLog.date.$error" ng-if="newLog.date.$touched">
-                    <div ng-messages-include=" app/pages/messages.html"></div>
-                </div>
+                <input type="date" class="form-control" ng-model="trackCreate.timeEntry.date" placeholder="Date">
+            </div>
+            <div class="help-block" ng-messages="newLog.date.$error" ng-if="newLog.date.$touched">
+                <div ng-messages-include=" app/pages/messages.html"></div>
             </div>
             <div class="form-group has-feedback" ng-class="{ 'has-error': newLog.distance.$touched && newLog.distance.$invalid }">
                 <input type="number" string-to-number name="distance" class="form-control" placeholder="Distance (km)" ng-model="trackCreate.timeEntry.distance" required>

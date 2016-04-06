@@ -9,6 +9,12 @@
 
     function TrackCreateController(track) {
         var vm = this;
+
+        vm.create = create;
+
+        function create(){
+            console.debug('testing')
+        }
         
     }
 })();
